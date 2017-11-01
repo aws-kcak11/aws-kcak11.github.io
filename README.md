@@ -3,5 +3,4 @@
 
 ### The hosted site is [http://www.kcak11.com](http://www.kcak11.com)
 
-
-![KCAK11](http://kcak11.github.io/profile/the-k-circle.png)
+<img src="http://kcak11.github.io/profile/the-k-circle.png" width="200" height="200" />
