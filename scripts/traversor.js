@@ -1,6 +1,12 @@
 var cnameList = [ 
+	"https://kcak11.github.io", 
+	"https://js-engine.github.io", 
+	"https://aws-kcak11.github.io", 
+	"https://books-collection.github.io", 
+	"https://kcak11-docs.github.io", 
 	"https://k121-cdn.github.io", 
 	"https://kcak11-cdn.github.io", 
+	"https://t-i-m-e.github.io", 
 	"https://all.ashishkumarkc.com", 
 	"https://apps.ashishkumarkc.com", 
 	"https://bookmarks.ashishkumarkc.com", 
@@ -19,7 +25,7 @@ var cnameList = [
 	"https://weatherapp.ashishkumarkc.com", 
 	"https://web.ashishkumarkc.com", 
 	"https://www.ashishkumarkc.com", 
-	"https://kcak11.com", 
+	"https://kcak11.com",
 	"https://apps.kcak11.com"
 ];
 var runTest = function() {
