@@ -28,12 +28,15 @@ var cnameList = [
 	"https://kcak11.com",
 	"https://apps.kcak11.com"
 ];
+var winCollection = {};
 var runTest = function() {
 	for (var i = 0; i < cnameList.length; i++) {
 		(function(u, i) {
 			setTimeout(function() {
-				window.open(u, "_win_t" + i);
-			}, i * 363);
+				if (!winCollection["_win_t" + i] || winCollection["_win_t" + i].window) {
+					winCollection["_win_t" + i] = window.open(u, "_win_t" + i);
+				}
+			}, i * 605);
 		}(cnameList[i], i));
 		if (i === cnameList.length - 1) {
 			setTimeout(function() {
