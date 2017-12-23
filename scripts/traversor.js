@@ -23,9 +23,11 @@ var cnameList = [
 	"https://todos.ashishkumarkc.com", 
 	"https://videoapp.ashishkumarkc.com", 
 	"https://weatherapp.ashishkumarkc.com", 
-	"https://web.ashishkumarkc.com", 
+	"https://web.ashishkumarkc.com",
+	"https://ashishkumarkc.com",
 	"https://www.ashishkumarkc.com", 
 	"https://kcak11.com",
+	"https://www.kcak11.com",
 	"https://apps.kcak11.com"
 ];
 var winCollection = {};
