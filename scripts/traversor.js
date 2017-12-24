@@ -32,6 +32,7 @@ var cnameList = [
 ];
 var winCollection = {};
 var runTest = function() {
+	window.console && window.console.log("Running test @",new Date());
 	for (var i = 0; i < cnameList.length; i++) {
 		(function(u, i) {
 			setTimeout(function() {
