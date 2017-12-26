@@ -6,7 +6,6 @@ window["-testDelay-"] = 180000;
 	"https://books-collection.kcak11.com", 
 	"https://docs.kcak11.com", 
 	"https://k121-cdn.github.io", 
-	"https://kcak11-cdn.github.io", 
 	"https://t-i-m-e.kcak11.com", 
 	"https://all.ashishkumarkc.com", 
 	"https://apps.ashishkumarkc.com", 
