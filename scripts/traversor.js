@@ -1,7 +1,7 @@
 window["-testDelay-"] = 180000;
 (function() {
 	var cnameList = [ 
-	"https://kcak11.github.io", 
+	"https://cdn.kcak11.com", 
 	"https://js-engine.github.io", 
 	"https://aws-kcak11.github.io", 
 	"https://books-collection.github.io", 
