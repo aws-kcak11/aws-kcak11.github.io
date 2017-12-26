@@ -7,7 +7,7 @@ window["-testDelay-"] = 180000;
 	"https://kcak11-docs.github.io", 
 	"https://k121-cdn.github.io", 
 	"https://kcak11-cdn.github.io", 
-	"https://t-i-m-e.github.io", 
+	"https://t-i-m-e.kcak11.com", 
 	"https://all.ashishkumarkc.com", 
 	"https://apps.ashishkumarkc.com", 
 	"https://bookmarks.ashishkumarkc.com", 
