@@ -21,6 +21,12 @@
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
+            if(document.cookie.indexOf("fluid_refresh") < 0){
+                document.cookie="fluid_refresh=true;path=/";
+                window.location.reload(true);
+            }else{
+                console.log("cookie exists . . .");
+            }
             return retObj;
         };
         var elements = init();
