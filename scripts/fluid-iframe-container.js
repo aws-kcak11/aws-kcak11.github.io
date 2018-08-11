@@ -3,7 +3,6 @@
         var init = function() {
             var divContainer = document.createElement("div");
             divContainer.id = "mainContainer";
-            divContainer.style.backgroundColor = "#000";
             divContainer.style.position = "fixed";
             divContainer.style.top = divContainer.style.right = divContainer.style.bottom = divContainer.style.left = "0px";
             document.querySelector("body").appendChild(divContainer);
