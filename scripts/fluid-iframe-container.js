@@ -26,9 +26,9 @@
 
         var autoAdjustDimensions = function() {
             function fixDim() {
-                var w = elements.mainContainer.offsetWidth;
-                var h = elements.mainContainer.offsetHeight;
                 setTimeout(function(){
+                    var w = elements.mainContainer.offsetWidth;
+                    var h = elements.mainContainer.offsetHeight;
                     elements.mainFrame.style.width = w + "px";
                     elements.mainFrame.style.height = h + "px";
                 },0);
