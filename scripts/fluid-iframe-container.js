@@ -21,12 +21,10 @@
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
-            setInterval(function(){
-                retObj.mainFrame.style.display = "block";
-                setTimeout(function(){
-                    retObj.mainFrame.style.display = "inline-block";
-                },11);
-            },200);
+            if((""+document.cookie).indexOf("fluid_refresh") < 0){
+                document.cookie = "fluid_refresh=true;path=/";
+                window.location.reload(true);
+            }
             return retObj;
         };
         var elements = init();
