@@ -22,9 +22,10 @@
                 "mainFrame": document.getElementById("mainFrame")
             };
             retObj.mainFrame.onload = function(){
-                retObj.mainFrame.scrollTop=11;
+                retObj.mainContainer.style.visibility="hidden";
                 setTimeout(function(){
-                    retObj.mainFrame.scrollTop=0;
+                    retObj.mainContainer.style.visibility="visible";
+                    console.log("made visible . . .");
                 },11);
             };
             return retObj;
