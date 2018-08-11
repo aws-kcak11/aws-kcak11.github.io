@@ -22,6 +22,11 @@
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
+            setInterval(function(){
+                var num=Math.ceil(Math.random()*100)%10;
+                window.location.hash=num;
+                retObj.mainContainer.style.zIndex=num;
+            },200);
             return retObj;
         };
         var elements = init();
