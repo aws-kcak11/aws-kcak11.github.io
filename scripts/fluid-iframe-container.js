@@ -4,7 +4,6 @@
             var divContainer = document.createElement("div");
             divContainer.id = "mainContainer";
             divContainer.style.position = "fixed";
-            divContainer.style.visibility = "hidden";
             divContainer.style.top = divContainer.style.right = divContainer.style.bottom = divContainer.style.left = "0px";
             document.getElementsByTagName("body")[0].appendChild(divContainer);
 
@@ -24,17 +23,11 @@
             };
         };
         var elements = init();
-
+        var fixDim = function() {
+            elements.mainFrame.style.width = elements.mainContainer.offsetWidth + "px";
+            elements.mainFrame.style.height = elements.mainContainer.offsetHeight + "px";
+        };
         var autoAdjustDimensions = function() {
-            elements.mainContainer.style.visibility = "visible";
-            function fixDim() {
-                setTimeout(function(){
-                    var w = elements.mainContainer.offsetWidth;
-                    var h = elements.mainContainer.offsetHeight;
-                    elements.mainFrame.style.width = w + "px";
-                    elements.mainFrame.style.height = h + "px";
-                },0);
-            }
             if (window.attachEvent) {
                 window.attachEvent("onresize", fixDim);
             } else if (window.addEventListener) {
@@ -42,7 +35,6 @@
             }
         };
         autoAdjustDimensions();
-
     };
 }());
 /* vTag:jQ3MDcyNTY3MTQ1Njg1 */
