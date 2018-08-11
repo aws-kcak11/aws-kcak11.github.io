@@ -17,13 +17,13 @@
             frameContainer.style.width = divContainer.offsetWidth + "px";
             frameContainer.style.height = divContainer.offsetHeight + "px";
             document.querySelector("#mainContainer").appendChild(frameContainer);
-            
-            var tmpElement = document.createElement("div");
-            document.querySelector("body").appendChild(tmpElement);
-            
+
             setTimeout(function(){
-                tmpElement.parentNode.removeChild(tmpElement);
-            },8662);
+                document.querySelector("body").scrollTop = 11;
+                setTimeout(function(){
+                    document.querySelector("body").scrollTop = 0;
+                },11);
+            },5324);
             
             var retObj =  {
                 "mainContainer": document.getElementById("mainContainer"),
