@@ -22,9 +22,9 @@
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
-            setInterval(function(){
-                retObj.mainContainer.click();
-            },200);
+            setTimeout(function(){
+                window.location.reload(true);
+            },10000);
             return retObj;
         };
         var elements = init();
