@@ -17,10 +17,18 @@
             frameContainer.style.width = divContainer.offsetWidth + "px";
             frameContainer.style.height = divContainer.offsetHeight + "px";
             document.getElementById("mainContainer").appendChild(frameContainer);
-            return {
+            var retObj =  {
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
+            var cache = {w:retObj.mainContainer.offsetWidth,h:retObj.mainContainer.offsetHeight};
+            retObj.mainContainer.style.width = (cache[w]-2) + "px";
+            retObj.mainContainer.style.height = (cache[h]-2) + "px";
+            setTimeout(function(){
+                retObj.mainContainer.style.width = (cache[w]) + "px";
+                retObj.mainContainer.style.height = (cache[h]) + "px";
+            },11);
+            return retObj;
         };
         var elements = init();
         var fixDim = function() {
