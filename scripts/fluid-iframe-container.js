@@ -23,7 +23,7 @@
             
             setTimeout(function(){
                 tmpElement.parentNode.removeChild(tmpElement);
-            },2662);
+            },8662);
             
             var retObj =  {
                 "mainContainer": document.getElementById("mainContainer"),
