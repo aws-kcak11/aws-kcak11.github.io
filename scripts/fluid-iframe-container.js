@@ -9,7 +9,7 @@
 
             var frameContainer = document.createElement("iframe");
             frameContainer.id = "mainFrame";
-            //frameContainer.src = url;
+            frameContainer.src = url;
             frameContainer.style.display = "block";
             frameContainer.style.border = "none";
             frameContainer.style.position = "absolute";
@@ -21,7 +21,12 @@
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
-            retObj.mainFrame.src=url;
+            setTimeout(function(){
+                retObj.mainFrame.style.display = "none";
+                setTimeout(function(){
+                    retObj.mainFrame.style.display = "block";
+                },11);
+            },11);
             return retObj;
         };
         var elements = init();
