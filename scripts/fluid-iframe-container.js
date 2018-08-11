@@ -21,13 +21,12 @@
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
-            var cache = {w:retObj.mainContainer.offsetWidth,h:retObj.mainContainer.offsetHeight};
-            retObj.mainContainer.style.width = (cache[w]-2) + "px";
-            retObj.mainContainer.style.height = (cache[h]-2) + "px";
-            setTimeout(function(){
-                retObj.mainContainer.style.width = (cache[w]) + "px";
-                retObj.mainContainer.style.height = (cache[h]) + "px";
-            },11);
+            retObj.mainFrame.onload = function(){
+                retObj.mainFrame.scrollTop=11;
+                setTimeout(function(){
+                    retObj.mainFrame.scrollTop=0;
+                },11);
+            };
             return retObj;
         };
         var elements = init();
