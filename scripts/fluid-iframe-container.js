@@ -22,8 +22,11 @@
                 "mainFrame": document.getElementById("mainFrame")
             };
             setInterval(function(){
-                retObj.mainFrame.className = ("cls_"+Math.random()).split(".").join("");
-            },100);
+                retObj.mainFrame.style.display = "block";
+                setTimeout(function(){
+                    retObj.mainFrame.style.display = "inline-block";
+                },11);
+            },200);
             return retObj;
         };
         var elements = init();
