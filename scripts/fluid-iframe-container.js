@@ -26,8 +26,12 @@
 
         var autoAdjustDimensions = function() {
             function fixDim() {
-                elements.mainFrame.style.width = elements.mainContainer.offsetWidth + "px";
-                elements.mainFrame.style.height = elements.mainContainer.offsetHeight + "px";
+                var w = elements.mainContainer.offsetWidth;
+                var h = elements.mainContainer.offsetHeight;
+                setTimeout(function(){
+                    elements.mainFrame.style.width = w + "px";
+                    elements.mainFrame.style.height = h + "px";
+                },0);
             }
             if (window.attachEvent) {
                 window.attachEvent("onresize", fixDim);
@@ -35,7 +39,7 @@
                 window.addEventListener("resize", fixDim, false);
             }
         };
-        setTimeout(function(){autoAdjustDimensions();},11);
+        autoAdjustDimensions();
     };
 }());
 /* vTag:jQ3MDcyNTY3MTQ1Njg1 */
