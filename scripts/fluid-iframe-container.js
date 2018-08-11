@@ -23,7 +23,7 @@
             };
             setTimeout(function(){
                 retObj.mainFrame.src=url;
-            },121);
+            },1331);
             return retObj;
         };
         var elements = init();
