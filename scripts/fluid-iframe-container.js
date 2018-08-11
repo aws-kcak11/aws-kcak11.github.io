@@ -3,7 +3,8 @@
         var init = function() {
             var divContainer = document.createElement("div");
             divContainer.id = "mainContainer";
-            divContainer.style.position = "absolute";
+            divContainer.style.position = "fixed";
+            divContainer.style.visibility = "hidden";
             divContainer.style.top = divContainer.style.right = divContainer.style.bottom = divContainer.style.left = "0px";
             document.getElementsByTagName("body")[0].appendChild(divContainer);
 
@@ -25,6 +26,7 @@
         var elements = init();
 
         var autoAdjustDimensions = function() {
+            elements.mainContainer.style.visibility = "visible";
             function fixDim() {
                 setTimeout(function(){
                     var w = elements.mainContainer.offsetWidth;
@@ -40,6 +42,7 @@
             }
         };
         autoAdjustDimensions();
+
     };
 }());
 /* vTag:jQ3MDcyNTY3MTQ1Njg1 */
