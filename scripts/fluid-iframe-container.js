@@ -22,9 +22,6 @@
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
-            setTimeout(function(){
-                window.location.reload(true);
-            },10000);
             return retObj;
         };
         var elements = init();
