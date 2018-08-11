@@ -22,6 +22,13 @@
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
+            var navAgnt = navigator.userAgent;
+            if(navAgnt.indexOf(" Mac ") > -1 && navAgnt.indexOf("Chrome/") > -1){
+                if((""+document.cookie).indexOf("fluid_refresh=true") < 0){
+                    document.cookie="fluid_refresh=true;path=/";
+                    window.location.reload(true);
+                }
+            }
             return retObj;
         };
         var elements = init();
