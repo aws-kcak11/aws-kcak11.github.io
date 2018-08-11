@@ -9,7 +9,7 @@
 
             var frameContainer = document.createElement("iframe");
             frameContainer.id = "mainFrame";
-            frameContainer.src = url;
+            //frameContainer.src = url;
             frameContainer.style.display = "block";
             frameContainer.style.border = "none";
             frameContainer.style.position = "absolute";
@@ -21,13 +21,7 @@
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
-            retObj.mainFrame.onload = function(){
-                retObj.mainContainer.style.visibility="hidden";
-                setTimeout(function(){
-                    retObj.mainContainer.style.visibility="visible";
-                    console.log("made visible . . .");
-                },11);
-            };
+            retObj.mainFrame.src=url;
             return retObj;
         };
         var elements = init();
