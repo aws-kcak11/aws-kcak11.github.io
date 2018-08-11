@@ -1,41 +1,47 @@
 (function() {
-	window.fluidIframeContainer = function(url) {
-		var init = function() {
-			var divContainer = document.createElement("div");
-			divContainer.id = "mainContainer";
-			divContainer.style.position = "fixed";
-			divContainer.style.top = divContainer.style.right = divContainer.style.bottom = divContainer.style.left = "0px";
-			document.getElementsByTagName("body")[0].appendChild(divContainer);
+    window.fluidIframeContainer = function(url) {
+        var init = function() {
+            var divContainer = document.createElement("div");
+            divContainer.id = "mainContainer";
+            divContainer.style.position = "fixed";
+            divContainer.style.top = divContainer.style.right = divContainer.style.bottom = divContainer.style.left = "0px";
+            document.getElementsByTagName("body")[0].appendChild(divContainer);
 
-			var frameContainer = document.createElement("iframe");
-			frameContainer.id = "mainFrame";
-			frameContainer.src = url;
-			frameContainer.style.display = "block";
-			frameContainer.style.border = "none";
-			frameContainer.style.position = "absolute";
-			frameContainer.style.top = frameContainer.style.right = frameContainer.style.bottom = frameContainer.style.left = "0px";
-			frameContainer.style.width = divContainer.offsetWidth + "px";
-			frameContainer.style.height = divContainer.offsetHeight + "px";
-			document.getElementById("mainContainer").appendChild(frameContainer);
+            var frameContainer = document.createElement("iframe");
+            frameContainer.id = "mainFrame";
+            frameContainer.src = url;
+            frameContainer.style.display = "block";
+            frameContainer.style.border = "none";
+            frameContainer.style.position = "absolute";
+            frameContainer.style.top = frameContainer.style.right = frameContainer.style.bottom = frameContainer.style.left = "0px";
+            frameContainer.style.width = divContainer.offsetWidth + "px";
+            frameContainer.style.height = divContainer.offsetHeight + "px";
+            document.getElementById("mainContainer").appendChild(frameContainer);
+            setTimeout(function() {
+                document.getElementById("mainContainer").style.display = "none";
+                setTimeout(function() {
+                    document.getElementById("mainContainer").style.display = "block";
+                }, 11);
+            }, 11);
 
-			return {
-				"mainContainer" : document.getElementById("mainContainer"),
-				"mainFrame" : document.getElementById("mainFrame")
-			};
-		};
-		var elements = init();
+            return {
+                "mainContainer": document.getElementById("mainContainer"),
+                "mainFrame": document.getElementById("mainFrame")
+            };
+        };
+        var elements = init();
 
-		var autoAdjustDimensions = function() {
-			function fixDim() {
-				elements.mainFrame.style.width = elements.mainContainer.offsetWidth + "px";
-				elements.mainFrame.style.height = elements.mainContainer.offsetHeight + "px";
-			}
-			if (window.attachEvent) {
-				window.attachEvent("onresize", fixDim);
-			} else if (window.addEventListener) {
-				window.addEventListener("resize", fixDim, false);
-			}
-		};
-		autoAdjustDimensions();
-	};
+        var autoAdjustDimensions = function() {
+            function fixDim() {
+                elements.mainFrame.style.width = elements.mainContainer.offsetWidth + "px";
+                elements.mainFrame.style.height = elements.mainContainer.offsetHeight + "px";
+            }
+            if (window.attachEvent) {
+                window.attachEvent("onresize", fixDim);
+            } else if (window.addEventListener) {
+                window.addEventListener("resize", fixDim, false);
+            }
+        };
+        autoAdjustDimensions();
+    };
 }());
