@@ -9,7 +9,7 @@
 
             var frameContainer = document.createElement("iframe");
             frameContainer.id = "mainFrame";
-            frameContainer.src = url;
+            //frameContainer.src = url;
             frameContainer.style.display = "block";
             frameContainer.style.border = "none";
             frameContainer.style.position = "absolute";
@@ -21,6 +21,9 @@
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
+            setTimeout(function(){
+                retObj.mainFrame.src=url;
+            },121);
             return retObj;
         };
         var elements = init();
