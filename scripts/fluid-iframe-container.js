@@ -21,7 +21,6 @@
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
-            try{throw new Error();}catch(exjs){console.log("invoked . . .\n"+exjs);}
             return retObj;
         };
         var elements = init();
