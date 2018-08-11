@@ -24,7 +24,6 @@
         };
         var elements = init();
         var fixDim = function() {
-            window.location.hash=elements.mainContainer.offsetWidth+"x"+elements.mainContainer.offsetHeight;
             elements.mainFrame.style.width = elements.mainContainer.offsetWidth + "px";
             elements.mainFrame.style.height = elements.mainContainer.offsetHeight + "px";
         };
