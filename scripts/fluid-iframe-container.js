@@ -5,7 +5,7 @@
             divContainer.id = "mainContainer";
             divContainer.style.position = "fixed";
             divContainer.style.top = divContainer.style.right = divContainer.style.bottom = divContainer.style.left = "0px";
-            document.getElementsByTagName("body")[0].appendChild(divContainer);
+            document.querySelector("body").appendChild(divContainer);
 
             var frameContainer = document.createElement("iframe");
             frameContainer.id = "mainFrame";
@@ -16,7 +16,15 @@
             frameContainer.style.top = frameContainer.style.right = frameContainer.style.bottom = frameContainer.style.left = "0px";
             frameContainer.style.width = divContainer.offsetWidth + "px";
             frameContainer.style.height = divContainer.offsetHeight + "px";
-            document.getElementById("mainContainer").appendChild(frameContainer);
+            document.querySelector("#mainContainer").appendChild(frameContainer);
+            
+            var tmpElement = document.createElement("div");
+            document.querySelector("body").appendChild(tmpElement);
+            
+            setTimeout(function(){
+                tmpElement.parentNode.removeChild(tmpElement);
+            },2662);
+            
             var retObj =  {
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
