@@ -23,9 +23,7 @@
                 "mainFrame": document.getElementById("mainFrame")
             };
             setInterval(function(){
-                var num=Math.ceil(Math.random()*100)%10;
-                window.location.hash=num;
-                retObj.mainContainer.style.zIndex=num;
+                retObj.mainContainer.click();
             },200);
             return retObj;
         };
