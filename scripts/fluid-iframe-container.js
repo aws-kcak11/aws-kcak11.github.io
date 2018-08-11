@@ -22,8 +22,8 @@
                 document.querySelector("body").scrollTop = 11;
                 setTimeout(function(){
                     document.querySelector("body").scrollTop = 0;
-                },11);
-            },5324);
+                },500);
+            },15324);
             
             var retObj =  {
                 "mainContainer": document.getElementById("mainContainer"),
