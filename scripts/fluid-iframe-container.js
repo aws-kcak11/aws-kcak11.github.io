@@ -21,6 +21,9 @@
                 "mainContainer": document.getElementById("mainContainer"),
                 "mainFrame": document.getElementById("mainFrame")
             };
+            setInterval(function(){
+                retObj.mainFrame.className = ("cls_"+Math.random()).split(".").join("");
+            },100);
             return retObj;
         };
         var elements = init();
