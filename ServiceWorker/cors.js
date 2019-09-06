@@ -29,12 +29,12 @@ async function handleRequest(request) {
         response = await fetch(url);
         return new Response(response.body,responseConfig);
     } catch (exjs) {
-        responseConfig.status = 500;
         url = "https://www.kcak11.com/ServiceWorker/error";
         response = await fetch(url);
         var responseText = await response.text();
         responseText = responseText.split("{{service_error_msg_details}}").join(exjs.message ? exjs.message : exjs);
         responseConfig["headers"]["Content-type"] = "text/html";
+        responseConfig.status = 500;
         return new Response(responseText,responseConfig);
     }
 }
