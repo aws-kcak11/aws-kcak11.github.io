@@ -1,5 +1,5 @@
 addEventListener('fetch', event=>{
-    event.respondWith(handleRequest(event.request))
+    event.respondWith(handleRequest(event.request));
 });
 
 /**
@@ -33,7 +33,7 @@ async function handleRequest(request) {
         response = await fetch(url);
         var responseText = await response.text();
         responseText = responseText.split("{{service_error_msg_details}}").join(exjs.message ? exjs.message : exjs);
-        responseConfig["headers"]["Content-type"] = "text/html";
+        responseConfig["headers"]["Content-type"] = "text/html;charset=UTF-8";
         responseConfig.status = 500;
         return new Response(responseText,responseConfig);
     }
