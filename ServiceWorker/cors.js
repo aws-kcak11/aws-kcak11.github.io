@@ -33,7 +33,10 @@ async function handleRequest(request) {
         } else {
             url = "https://www.kcak11.com/ServiceWorker/missing-worker-url";
         }
-        response = await fetch(url,request);
+        var customRequest = new Request(request,{
+            "redirect": "follow"
+        });
+        response = await fetch(url,customRequest);
         if (contentType) {
             responseConfig["headers"]["Content-type"] = contentType;
         }
