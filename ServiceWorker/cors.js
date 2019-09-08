@@ -33,14 +33,14 @@ async function handleRequest(request) {
         } else {
             url = "https://www.kcak11.com/ServiceWorker/missing-worker-url";
         }
-        response = await fetch(url);
+        response = await fetch(url,request);
         if (contentType) {
             responseConfig["headers"]["Content-type"] = contentType;
         }
         return new Response(response.body,responseConfig);
     } catch (exjs) {
         url = "https://www.kcak11.com/ServiceWorker/error";
-        response = await fetch(url);
+        response = await fetch(url,request);
         var responseText = await response.text();
         responseText = responseText.split("{{service_error_msg_details}}").join(exjs.message ? exjs.message : exjs);
         responseConfig["headers"]["Content-type"] = "text/html;charset=UTF-8";
