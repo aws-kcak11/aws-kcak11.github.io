@@ -10,32 +10,42 @@
             .red {
                 color: #f00;
             }
-.bold{
-    font-weight:bold;}
+
             .highlight {
                 background-color: #ffba75;
-                color:#00f;
+                color: #00f;
             }
-            ul li{
-                margin-bottom: 22px;}
+
+            ul li {
+                margin-bottom: 22px;
+            }
         </style>
     </head>
     <body>
         <h1>Your request is missing the "url" parameter.</h1>
         <h2>Please specify the url parameter as below:</h2>
         <h3>
-            https://cors.kcak11.workers.dev/?<span class="highlight">url=</span><span class="red">https://www.example.com</span>
+            https://cors.kcak11.workers.dev/?<span class="highlight">url=</span>
+            <span class="red">https://www.example.com</span>
         </h3>
         <span>Note: In the url, don't forget to also include the protocol i.e. http:// or https://</span>
         <br/>
         <h2>Other useful parameters:</h2>
         <ul>
             <li>
-                <span class="bold">contentType</span>: You can specify a contentType for your response.<br/>
+                <b>contentType</b>
+                : You can specify a contentType for your response.<br/>
                 e.g.: https://cors.kcak11.workers.dev/?<span class="highlight">contentType=text/plain</span>
                 &url =https://www.example.com
+            
             </li>
-            <li><span class="bold">format=base64</span>: You can specify the format=base64 parameter to get a Base64 response for the requested resource.<br/>e.g.: https://cors.kcak11.workers.dev/?<span class="highlight">format=base64</span>&url=https://www.example.com<br/>Note: When specifying the format=base64 parameter, the contentType parameter is ignored and the response Content-type will always be of type <span class="bold">application/json</span></li>
+            <li>
+                <b>format=base64</b>
+                : You can specify the format=base64 parameter to get a Base64 response for the requested resource.<br/>
+                e.g.: https://cors.kcak11.workers.dev/?<span class="highlight">format=base64</span>
+                &url =https://www.example.com<br/>
+                Note: When specifying the format=base64 parameter, the contentType parameter is ignored and the response Content-type will always be of type <b>application/json</b>
+            </li>
         </ul>
     </body>
 </html>
