@@ -38,5 +38,13 @@
             Try to hit your url in a new tab with DevTools open and inspect your request in the Network Panel. <br/>That could point at the potential problem with the url.
         </span>
         <div id="errDetails" {{encoded_service_error_msg_details}}><!-- Error Details --></div>
+        <script type="text/javascript">
+            var errDetails = document.getElementById("errDetails").getAttribute("errDetails");
+            if(errDetails){
+                var dom=document.createElement("html");
+                dom.innerHTML=decodeURIComponent(errDetails);
+                document.querySelector(".errDetails").innerHTML=dom.querySelector("h2.cf-subheadline").innerHTML;
+            }
+        </script>
     </body>
 </html>
