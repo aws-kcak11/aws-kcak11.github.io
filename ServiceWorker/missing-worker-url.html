@@ -10,6 +10,9 @@
             .url {
                 color: #f00;
             }
+            .highlight {
+                background-color: #ffba75;
+            }
         </style>
     </head>
     <body>
@@ -18,6 +21,11 @@
         <h3>
             https://cors.kcak11.workers.dev/?url=<span class="url">https://www.example.com</span>
         </h3>
-        <span>        Note: In the url, don't forget to also include the protocol i.e. http:// or https://</span>
+        <span>Note: In the url, don't forget to also include the protocol i.e. http:// or https://</span>
+        <br/>
+        <h2>Other useful parameters:</h2>
+        <ul>
+            <li>contentType: You can specify a contentType for your response.<br/>e.g.: https://cors.kcak11.workers.dev/?<span class="highlight">contentType=text/plain</span>&url=https://www.example.com</li>
+        </ul>
     </body>
 </html>
