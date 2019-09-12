@@ -106,7 +106,7 @@ async function handleRequest(request) {
                 if (respText.indexOf("cf-error-overview") > -1) {
                     let start = Math.max(respText.indexOf("cf-error-overview") - 100, 0);
                     let errorText = respText.substr(start, 1024);
-                    var err = new Error("Generic Error");
+                    let err = new Error("Generic Error");
                     err.httpStatus = respStatus;
                     err.errDetails = encodeURIComponent(errorText);
                     throw err;
