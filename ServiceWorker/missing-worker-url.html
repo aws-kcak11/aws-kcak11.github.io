@@ -16,6 +16,8 @@
                 background-color: #ffba75;
                 color:#00f;
             }
+            ul li{
+                margin-bottom: 22px;}
         </style>
     </head>
     <body>
@@ -33,7 +35,7 @@
                 e.g.: https://cors.kcak11.workers.dev/?<span class="highlight">contentType=text/plain</span>
                 &url =https://www.example.com
             </li>
-            <li><span class="bold">format=base64</span>: You can specify the format=base64 parameter to get a Base64 response for the requested resource.<br/>e.g.: https://cors.kcak11.workers.dev/?<span class="highlight">format=base64</span>&url=https://www.example.com</li>
+            <li><span class="bold">format=base64</span>: You can specify the format=base64 parameter to get a Base64 response for the requested resource.<br/>e.g.: https://cors.kcak11.workers.dev/?<span class="highlight">format=base64</span>&url=https://www.example.com<br/>Note: When specifying the format=base64 parameter, the contentType parameter is ignored and the response Content-type will always be of type <span class="bold">application/json</span></li>
         </ul>
     </body>
 </html>
