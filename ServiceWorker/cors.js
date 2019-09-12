@@ -39,7 +39,7 @@ function base64Decode(string) {
     const length = string.length
       , buf = new ArrayBuffer(length)
       , bufView = new Uint8Array(buf);
-    for (var i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {
         bufView[i] = string.charCodeAt(i);
     }
     return buf;
@@ -88,6 +88,7 @@ async function handleRequest(request) {
             if (url.indexOf("cors.kcak11.workers.dev") > -1) {
                 throw new Error("Invalid url specified.");
             }
+            urlExists = true;
         } else {
             url = "https://www.kcak11.com/ServiceWorker/missing-worker-url";
         }
@@ -95,7 +96,24 @@ async function handleRequest(request) {
             "redirect": "follow"
         });
         response = await fetch(url,customRequest);
-        if (_url.searchParams.get("format") === "base64") {
+        if (urlExists) {
+            let respStatus = response.status;
+            let respStatusText = response.statusText;
+            responseConfig["headers"]["Remote-Response-Status"] = respStatus + " " + respStatusText;
+            if (respStatus > 399) {
+                let clonedResponse = response.clone();
+                let respText = await clonedResponse.text();
+                if (respText.indexOf("cf-error-overview") > -1) {
+                    let start = Math.max(respText.indexOf("cf-error-overview") - 100, 0);
+                    let errorText = respText.substr(start, 1024);
+                    var err = new Error("Generic Error");
+                    err.httpStatus = respStatus;
+                    err.errDetails = encodeURIComponent(errorText);
+                    throw err;
+                }
+            }
+        }
+        if (urlExists && _url.searchParams.get("format") === "base64") {
             return handleBase64Request(url, response, responseConfig);
         }
         if (contentType) {
@@ -106,7 +124,11 @@ async function handleRequest(request) {
         url = "https://www.kcak11.com/ServiceWorker/error";
         response = await fetch(url);
         let responseText = await response.text();
-        responseText = responseText.split("{{service_error_msg_details}}").join(exjs.message ? exjs.message : exjs);
+        if (exjs.errDetails) {
+            responseText = responseText.split("{{encoded_service_error_msg_details}}").join("errDetails=\"" + exjs.errDetails + "\"");
+        } else {
+            responseText = responseText.split("{{service_error_msg_details}}").join(exjs.message ? exjs.message : exjs);
+        }
         responseConfig["headers"]["Content-type"] = "text/html;charset=UTF-8";
         responseConfig.status = exjs.httpStatus || 500;
         return new Response(responseText,responseConfig);
