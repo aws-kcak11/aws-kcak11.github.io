@@ -90,7 +90,7 @@ async function handleRequest(request) {
             }
             urlExists = true;
         } else {
-            url = "https://www.kcak11.com/ServiceWorker/missing-worker-url";
+            url = "https://www.kcak11.com/ServiceWorker/cors/missing-worker-url";
         }
         let customRequest = new Request(request,{
             "redirect": "follow"
@@ -121,7 +121,7 @@ async function handleRequest(request) {
         }
         return new Response(response.body,responseConfig);
     } catch (exjs) {
-        url = "https://www.kcak11.com/ServiceWorker/error";
+        url = "https://www.kcak11.com/ServiceWorker/cors/error";
         response = await fetch(url);
         let responseText = await response.text();
         if (exjs.errDetails) {
