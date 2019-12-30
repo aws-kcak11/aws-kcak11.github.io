@@ -85,7 +85,7 @@ async function handleRequest(request) {
         if (_url.searchParams.get("url")) {
             url = _url.searchParams.get("url");
             contentType = _url.searchParams.get("contentType") || null;
-            if (url.indexOf("cors.kcak11.workers.dev") > -1) {
+            if (url.indexOf("cors.kcak11.workers.dev") > -1 || url.indexOf("cors.kcak11.com") > -1) {
                 throw new Error("Invalid url specified.");
             }
             urlExists = true;
