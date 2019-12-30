@@ -16,10 +16,21 @@
                 color: #00f;
             }
 
+            .urlInput {
+              outline: none;
+              width: 560px;
+              height: 30px;
+              border: 2px solid #000;
+              border-radius: 30px;
+              padding: 0 10px;
+              margin: 20px 0;
+              font-size:22px;
+            }
+
             ul li {
                 margin-bottom: 22px;
             }
-            
+
             .errorBanner {
                 width: 560px;
                 position: relative;
@@ -36,6 +47,11 @@
         </h3>
         <span>Note: In the url, don't forget to also include the protocol i.e. http:// or https://</span>
         <br/>
+        <br/>
+        <span>(or)</span>
+        <form method="get">
+          <input class="urlInput" type="text" name="url" placeholder="Enter URL ( with http: / https: ) here and press ENTER" />
+        </form>
         <h2>Other useful parameters:</h2>
         <ul>
             <li>
@@ -50,5 +66,8 @@
                 Note: When specifying the format=base64 parameter, the contentType parameter is ignored and the response Content-type will always be of type <b>application/json</b>
             </li>
         </ul>
+        <script type="text/javascript">
+          document.querySelector(".urlInput").focus();
+        </script>
     </body>
 </html>
