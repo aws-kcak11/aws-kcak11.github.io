@@ -1,6 +1,6 @@
 const serviceInfo = "Provider=[https://www.kcak11.com|https://www.ashishkumarkc.com]";
 
-addEventListener('fetch', event=>{
+addEventListener('fetch', event => {
     event.respondWith(handleRequest(event.request));
 });
 
@@ -9,11 +9,11 @@ addEventListener('fetch', event=>{
  */
 function getResponseID() {
     let chars = "abcdef0123456789"
-      , responseID = "";
+        , responseID = "";
     for (let i = 0; i < 2; i++) {
         responseID += chars;
     }
-    return responseID.split("").sort(function() {
+    return responseID.split("").sort(function () {
         return Math.random() - Math.random();
     }).join("");
 }
@@ -24,7 +24,7 @@ function getResponseID() {
  */
 function base64Encode(buf) {
     let string = '';
-    (new Uint8Array(buf)).forEach((byte)=>{
+    (new Uint8Array(buf)).forEach((byte) => {
         string += String.fromCharCode(byte);
     });
     return btoa(string);
@@ -37,8 +37,8 @@ function base64Encode(buf) {
 function base64Decode(string) {
     string = atob(string);
     const length = string.length
-      , buf = new ArrayBuffer(length)
-      , bufView = new Uint8Array(buf);
+        , buf = new ArrayBuffer(length)
+        , bufView = new Uint8Array(buf);
     for (let i = 0; i < length; i++) {
         bufView[i] = string.charCodeAt(i);
     }
@@ -49,6 +49,7 @@ function base64Decode(string) {
  * Handle Base64 Request
  * @param {String} url
  * @param {Response} response
+ * @param {Object} responseConfig
  */
 async function handleBase64Request(url, response, responseConfig) {
     let responseObject = {
@@ -56,7 +57,21 @@ async function handleBase64Request(url, response, responseConfig) {
         base64Data: base64Encode(await response.arrayBuffer())
     };
     responseConfig["headers"]["Content-type"] = "application/json";
-    return new Response(JSON.stringify(responseObject),responseConfig);
+    return new Response(JSON.stringify(responseObject), responseConfig);
+}
+
+/**
+ * 
+ * @param {Request} request 
+ * @param {Object} responseConfig 
+ */
+async function handleMyIPRequest(request, responseConfig) {
+    let responseObject = {
+        "myip": request.headers.get("cf-connecting-ip"),
+        "country": request.headers.get("cf-ipcountry")
+    };
+    responseConfig["headers"]["Content-type"] = "application/json";
+    return new Response(JSON.stringify(responseObject), responseConfig);
 }
 
 /**
@@ -82,6 +97,9 @@ async function handleRequest(request) {
             throw methodError;
         }
         _url = new URL(request.url);
+        if (_url.searchParams.get("myip") === "yes") {
+            return handleMyIPRequest(request, responseConfig);
+        }
         if (_url.searchParams.get("url")) {
             url = _url.searchParams.get("url");
             contentType = _url.searchParams.get("contentType") || null;
@@ -92,10 +110,10 @@ async function handleRequest(request) {
         } else {
             url = "https://www.kcak11.com/ServiceWorker/cors/missing-worker-url";
         }
-        let customRequest = new Request(request,{
+        let customRequest = new Request(request, {
             "redirect": "follow"
         });
-        response = await fetch(url,customRequest);
+        response = await fetch(url, customRequest);
         if (urlExists) {
             let respStatus = response.status;
             let respStatusText = response.statusText;
@@ -119,7 +137,7 @@ async function handleRequest(request) {
         if (contentType) {
             responseConfig["headers"]["Content-type"] = contentType;
         }
-        return new Response(response.body,responseConfig);
+        return new Response(response.body, responseConfig);
     } catch (exjs) {
         url = "https://www.kcak11.com/ServiceWorker/cors/error";
         response = await fetch(url);
@@ -131,6 +149,6 @@ async function handleRequest(request) {
         }
         responseConfig["headers"]["Content-type"] = "text/html;charset=UTF-8";
         responseConfig.status = exjs.httpStatus || 500;
-        return new Response(responseText,responseConfig);
+        return new Response(responseText, responseConfig);
     }
 }
