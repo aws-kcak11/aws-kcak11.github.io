@@ -25,10 +25,10 @@
             var navAgnt = navigator.userAgent;
             if (navAgnt.indexOf(" Mac ") > -1 && navAgnt.indexOf("Chrome/") > -1) {
                 if (("" + document.cookie).indexOf("fluid_refresh=true") < 0) {
-                    document.cookie = "fluid_refresh=true;path=/";
+                    document.cookie = "fluid_refresh=true;path=/;samesite=lax;";
                     window.location.reload(true);
                 } else {
-                    document.cookie = "fluid_refresh=false;path=/";
+                    document.cookie = "fluid_refresh=false;path=/;samesite=lax;";
                 }
             }
             return retObj;
