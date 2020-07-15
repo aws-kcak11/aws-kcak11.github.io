@@ -123,6 +123,7 @@ function applyPwaInstallStyle() {
         pwi.shadowRoot.appendChild(cssStyle);
     } else {
         setTimeout(function() {
+	    console.log("Trying again . . .",Math.random());
             applyPwaInstallStyle();
         }, 100);
     }
