@@ -109,10 +109,11 @@ pwa-install::part(openButton) {
 <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall@latest/dist/pwa-install.min.js"></script>
 <pwa-install showopen></pwa-install>
 <script>
+var ctr=0;
 function applyPwaInstallStyle() {
     var pwi = document.querySelector("pwa-install");
-    if (pwi && pwi.shadowRoot) {
-        var cssText = "#headerContainer img {background-color:#fff;}";
+    if (ctr<300 && pwi && pwi.shadowRoot) {
+        var cssText = "#headerContainer img {background:#fff;}";
         var cssStyle = document.createElement("style");
         cssStyle.type = "text/css";
         if (cssStyle.styleSheet) {
@@ -122,8 +123,8 @@ function applyPwaInstallStyle() {
         }
         pwi.shadowRoot.appendChild(cssStyle);
     } else {
+        ctr++;
         setTimeout(function() {
-	    console.log("Trying again . . .",Math.random());
             applyPwaInstallStyle();
         }, 100);
     }
