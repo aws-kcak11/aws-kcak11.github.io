@@ -6,7 +6,7 @@
     "scope": "/",
     "display": "standalone",
     "start_url": "https://www.kcak11.com/",
-    "background_color": "transparent",
+    "background_color": "#ffffff",
     "theme_color": "#6593E4",
     "description": "Ashish Web",
     "orientation": "any",
