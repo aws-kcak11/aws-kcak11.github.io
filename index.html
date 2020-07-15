@@ -120,6 +120,8 @@ if (pwi && pwi.shadowRoot) {
         cssStyle.appendChild(document.createTextNode(cssText));
     }
     pwi.shadowRoot.appendChild(cssStyle);
+} else {
+  console.log("Not Found !!!");
 }
 </script>
 <!-- end PWA CODE -->
