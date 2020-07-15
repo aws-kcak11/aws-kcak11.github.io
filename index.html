@@ -113,7 +113,7 @@ var ctr=0;
 function applyPwaInstallStyle() {
     var pwi = document.querySelector("pwa-install");
     if (ctr<300 && pwi && pwi.shadowRoot) {
-        var cssText = "#headerContainer img {background:#fff !important;}";
+        var cssText = "#headerContainer img{background:#fff !important;} #installButton{background:#5aa0d3 !important;}";
         var cssStyle = document.createElement("style");
         cssStyle.type = "text/css";
         if (cssStyle.styleSheet) {
