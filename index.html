@@ -109,20 +109,25 @@ pwa-install::part(openButton) {
 <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall@latest/dist/pwa-install.min.js"></script>
 <pwa-install showopen></pwa-install>
 <script>
-var pwi = document.querySelector("pwa-install");
-if (pwi && pwi.shadowRoot) {
-    var cssText = "#headerContainer img {background-color:#fff;}";
-    var cssStyle = document.createElement("style");
-    cssStyle.type = "text/css";
-    if (cssStyle.styleSheet) {
-        cssStyle.styleSheet.cssText = cssText
+function applyPwaInstallStyle() {
+    var pwi = document.querySelector("pwa-install");
+    if (pwi && pwi.shadowRoot) {
+        var cssText = "#headerContainer img {background-color:#fff;}";
+        var cssStyle = document.createElement("style");
+        cssStyle.type = "text/css";
+        if (cssStyle.styleSheet) {
+            cssStyle.styleSheet.cssText = cssText
+        } else {
+            cssStyle.appendChild(document.createTextNode(cssText));
+        }
+        pwi.shadowRoot.appendChild(cssStyle);
     } else {
-        cssStyle.appendChild(document.createTextNode(cssText));
+        setTimeout(function() {
+            applyPwaInstallStyle();
+        }, 100);
     }
-    pwi.shadowRoot.appendChild(cssStyle);
-} else {
-  console.log("Not Found !!!");
 }
+applyPwaInstallStyle();
 </script>
 <!-- end PWA CODE -->
 </body>
