@@ -119,5 +119,16 @@
         }
     ],
     "url": "https://www.kcak11.com",
-    "screenshots": []
+    "screenshots": [
+        {
+            "src": "https://www.kcak11.com/assets/images/screenshots/1280x800.png",
+            "sizes": "1280x800",
+            "type": "image/png"
+        },
+        {
+            "src": "https://www.kcak11.com/assets/images/screenshots/750x1334.png",
+            "sizes": "750x1334",
+            "type": "image/png"
+        }
+    ]
 }
