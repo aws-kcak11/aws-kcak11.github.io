@@ -28,10 +28,6 @@ pwa-install::part(openButton) {
   background: #5aa0d3;
   color: #fff;
 }
-
-pwa-install:host #headerContainer img {
-  background-color: #fff;
-}
 </style>
 </head>
 <body>
@@ -112,6 +108,20 @@ pwa-install:host #headerContainer img {
 </script>
 <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall@latest/dist/pwa-install.min.js"></script>
 <pwa-install showopen></pwa-install>
+<script>
+var pwi = document.querySelector("pwa-install");
+if (pwi && pwi.shadowRoot) {
+    var cssText = "#headerContainer img {background-color:#fff;}";
+    var cssStyle = document.createElement("style");
+    cssStyle.type = "text/css";
+    if (cssStyle.styleSheet) {
+        cssStyle.styleSheet.cssText = cssText
+    } else {
+        cssStyle.appendChild(document.createTextNode(cssText));
+    }
+    pwi.shadowRoot.appendChild(cssStyle);
+}
+</script>
 <!-- end PWA CODE -->
 </body>
 </html>
