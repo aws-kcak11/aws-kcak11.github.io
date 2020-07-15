@@ -4,7 +4,7 @@
     "name": "Ashish Web",
     "short_name": "Ashish Web",
     "scope": "/",
-    "display": "browser",
+    "display": "standalone",
     "start_url": "https://www.kcak11.com/",
     "background_color": "transparent",
     "theme_color": "#6593E4",
