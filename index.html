@@ -51,7 +51,8 @@
             color: #fff;
         }
 
-        pwa-update {
+        pwa-update,
+        pwa-install {
             display: none;
         }
     </style>
@@ -184,6 +185,7 @@
                 sSheet.appendChild(document.createTextNode(cssText));
             }
             document.querySelector("pwa-install").shadowRoot.appendChild(sSheet);
+            document.querySelector("pwa-install").style.display = "block";
             document.getElementById("a2hs_bar").style.display = "block";
         });
     </script>
