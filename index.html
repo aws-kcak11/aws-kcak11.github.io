@@ -156,7 +156,6 @@
         a2hs_bar.addEventListener("click", function (e) {
             document.querySelector("pwa-install").shadowRoot.querySelector("button[part=openButton]").click();
             a2hs_bar.style.display = "none";
-            document.querySelector("pwa-install").shadowRoot.querySelector("#installButton").style.backgroundColor = "#5aa0d3";
         }, false);
         a2hs_bar.querySelector(".close").addEventListener("click", function (e) { e.stopPropagation(); a2hs_bar.style.display = "none"; }, false);
     </script>
