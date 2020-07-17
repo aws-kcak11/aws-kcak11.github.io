@@ -176,7 +176,14 @@
             _chk();
         }
         detectComponentAndRun("pwa-install", function () {
-            document.querySelector("pwa-install").shadowRoot.querySelector("button[part=openButton]").style.display = "none";
+            var cssText = "#openButton{display:none !important;}";
+            var sSheet = document.createElement("style");
+            if (sSheet.styleSheet) {
+                sSheet.styleSheet.cssText = cssText;
+            } else {
+                sSheet.appendChild(document.createTextNode(cssText));
+            }
+            document.querySelector("pwa-install").shadowRoot.appendChild(sSheet);
             document.getElementById("a2hs_bar").style.display = "block";
         });
     </script>
