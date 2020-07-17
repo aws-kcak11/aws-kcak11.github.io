@@ -177,7 +177,7 @@
             _chk();
         }
         detectComponentAndRun("pwa-install", function () {
-            var cssText = "#openButton{display:none !important;}";
+            var cssText = "#openButton{display:none !important;} #installButton{background-color:#5aa0d3 !important;}";
             var sSheet = document.createElement("style");
             if (sSheet.styleSheet) {
                 sSheet.styleSheet.cssText = cssText;
