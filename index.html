@@ -170,7 +170,7 @@
             _chk();
         }
         detectComponentAndRun("pwa-install", function () {
-            document.querySelector("pwa-install").shadowRoot.querySelector("button[part=openButton]").style.opacity = 0;
+            document.querySelector("pwa-install").shadowRoot.querySelector("button[part=openButton]").style.display = "none";
             document.getElementById("a2hs_bar").style.display = "block";
         });
     </script>
