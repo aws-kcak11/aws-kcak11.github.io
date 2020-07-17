@@ -150,6 +150,7 @@
         var a2hs_bar = document.getElementById("a2hs_bar");
         a2hs_bar.addEventListener("click", function (e) {
             document.querySelector("pwa-install").shadowRoot.querySelector("button[part=openButton]").click();
+            a2hs_bar.style.display = "none";
         }, false);
         a2hs_bar.querySelector(".close").addEventListener("click", function (e) { e.stopPropagation(); a2hs_bar.style.display = "none"; }, false);
     </script>
