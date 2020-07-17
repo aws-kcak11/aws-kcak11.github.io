@@ -185,7 +185,7 @@
             _chk();
         }
         detectComponentAndRun("pwa-install", "button[part=openButton]", function () {
-            var cssText = "#openButton{display:none !important;} #installButton{background-color:#5aa0d3 !important;}";
+            var cssText = "#openButton{display:none !important;} #installButton{background-color:#5aa0d3 !important;} #headerContainer img{background: #fff !important;}";
             var pwaInstall = document.querySelector("pwa-install");
             pwaInstall.shadowRoot.appendChild(getStyleSheet(cssText));
             pwaInstall.style.display = "block";
