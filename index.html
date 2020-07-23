@@ -21,7 +21,7 @@
         }
     </script>
     <script type="text/javascript" src="//www.kcak11.com/scripts/fluid-iframe-container.js"></script>
-    <style>
+    <style type="text/css">
         #a2hs_bar {
             display: none;
             position: fixed;
@@ -56,7 +56,16 @@
             display: none;
         }
     </style>
-</head>
+    <style type="text/css">
+        @media all and (display-mode: fullscreen),
+        (display-mode: standalone),
+        (display-mode: minimal-ui) {
+            #a2hs_bar {
+                display: none;
+            }
+        }
+    </style>
+  </head>
 
 <body>
     <noscript>Your browser does not support JavaScript!</noscript>
