@@ -5,7 +5,7 @@ window["-testDelay-"] = 180000;
 	"https://js-engine.kcak11.com", 
 	"https://books-collection.kcak11.com", 
 	"https://docs.kcak11.com", 
-	"https://t-i-m-e.kcak11.com", 
+	"https://time.kcak11.com", 
 	"https://all.ashishkumarkc.com", 
 	"https://apps.ashishkumarkc.com", 
 	"https://bookmarks.ashishkumarkc.com", 
