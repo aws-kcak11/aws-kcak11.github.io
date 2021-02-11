@@ -31,7 +31,9 @@ window["-testDelay-"] = 180000;
         "https://api.ashishkumarkc.com",
         "https://cors.kcak11.com",
         "https://cors.kcak11.workers.dev",
-        "https://web.kcak11.com"
+        "https://web.kcak11.com",
+        "https://code-archives.appspot.com",
+        "https://kcak11.com/codearchives"
     ];
     var winCollection = {};
     var runTest = function () {
