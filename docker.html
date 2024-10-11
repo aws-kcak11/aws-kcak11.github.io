@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Docker Commands Generator</title>
+    <link href='https://www.kcak11.com/favicon.png' rel='icon' type='image/x-icon' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <style type="text/css">
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .space-mono-regular {
+            font-family: "Space Mono", monospace;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        body {
+            font-family: Verdana;
+            padding: 30px;
+        }
+
+        .field-container {
+            margin-top: 15px;
+        }
+
+        label {
+            width: 150px;
+            display: inline-block;
+        }
+
+        input[type="text"] {
+            width: 350px;
+            height: 30px;
+            padding: 5px 10px;
+        }
+
+        .command-output {
+            position: relative;
+            width: 900px;
+        }
+
+        [copy-icon] {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 100;
+            width: 32px;
+            cursor: pointer;
+        }
+
+        [copy-icon].copied {
+            opacity: 0.5;
+        }
+
+        .command-output pre {
+            margin-top: 30px;
+            width: 100%;
+            overflow: auto;
+            background-color: #dedede;
+            padding: 30px;
+            box-shadow: 0 0 5px #000, 0 0 5px #000, 0 0 5px #000, 0 0 5px #000, 0 0 5px #000, 0 0 5px #000, 0 0 5px #000, 0 0 5px #000, 0 0 5px #000, 0 0 5px #000, 0 0 5px #000;
+        }
+
+        .command-output.hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Docker Commands Generator</h1>
+    <div class="field-container">
+        <label for="uname">*Username:</label>
+        <input type="text" id="uname" placeholder="<USERNAME FOR CONTAINER REGISTRY>" />
+    </div>
+    <div class="field-container">
+        <label for="image">*Image:</label>
+        <input type="text" id="image" placeholder="<IMAGENAME>:<TAG>" />
+    </div>
+    <div class="field-container">
+        <label for="imageID">Image ID:</label>
+        <input type="text" id="imageID" placeholder="<IMAGE ID>" />
+    </div>
+    <div class="command-output hidden">
+        <img copy-icon src="data:image/png;base64,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" />
+        <pre class="space-mono-regular"></pre>
+    </div>
+    <script type="text/javascript">
+        ((function () {
+            var template = "echo%20%24CR_PAT%20%7C%20docker%20login%20ghcr.io%20-u%20%7B%7Buname%7D%7D%20--password-stdin%0A%0Adocker%20tag%20%7B%7BimageID%7D%7D%20ghcr.io%2F%7B%7Buname%7D%7D%2F%7B%7Bimage%7D%7D%0A%0Adocker%20push%20ghcr.io%2F%7B%7Buname%7D%7D%2F%7B%7Bimage%7D%7D%0A";
+            var valueMap = {};
+            function copyToClipboard(inputText) {
+                var selBox = document.createElement('textarea');
+                selBox.setAttribute("aria-hidden", "true");
+                selBox.style.position = 'fixed';
+                selBox.style.left = '0';
+                selBox.style.top = '0';
+                selBox.style.opacity = '0';
+                selBox.value = inputText;
+                document.body.appendChild(selBox);
+                selBox.focus();
+                selBox.select();
+                document.execCommand('copy');
+                document.body.removeChild(selBox);
+            }
+            document.querySelector("#uname").focus();
+            document.querySelector("[copy-icon]").addEventListener("click", function (e) {
+                copyToClipboard(document.querySelector(".command-output pre").textContent);
+                var copyIcon = document.querySelector("[copy-icon]");
+                copyIcon.classList.add("copied");
+                setTimeout(function () {
+                    copyIcon.classList.remove("copied");
+                }, 100);
+            }, false);
+            document.querySelectorAll("input[type='text']").forEach((elem) => {
+                elem.addEventListener("input", function (e) {
+                    valueMap[e.target.id] = (e.target.value || "").trim();
+                    if (valueMap["uname"] && valueMap["image"]) {
+                        var commands = decodeURIComponent(template);
+                        commands = commands.split("{{uname}}").join(valueMap["uname"]);
+                        commands = commands.split("{{image}}").join(valueMap["image"]);
+                        commands = commands.split("{{imageID}}").join(valueMap["imageID"] || valueMap["image"]);
+                        document.querySelector(".command-output pre").innerHTML = commands;
+                        document.querySelector(".command-output").classList.remove("hidden");
+                    } else {
+                        document.querySelector(".command-output").classList.add("hidden");
+                    }
+                }, false);
+            });
+        })());
+    </script>
+</body>
+
+</html>
