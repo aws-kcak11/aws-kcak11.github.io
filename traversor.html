@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Site Traversor</title>
+</head>
+
+<body style="visibility:hidden;">
+    <script id="t-script" type="text/javascript" src="https://gist.github.com/kcak11/44001d07847b82d5a89ab1c6a296f2d3.js"></script>
+    <style id="page_main_style" type="text/css">
+        body {
+            font-family: Verdana;
+        }
+
+        span#_rld {
+            color: #f00;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        var answer;
+        var chk = function () {
+            var hd = document.querySelector("head");
+            var bdy = document.querySelector("body");
+            if (bdy.innerHTML.indexOf("@@@_" + "START_@@@") > -1 && bdy.innerHTML.indexOf("@@@_" + "END_@@@") > -1) {
+                var content = answer ? bdy.textContent.split("@@@_" + "START_@@@")[1].split("@@@_" + "END_@@@")[0] : "";
+                hd.querySelectorAll("link").forEach((l) => {
+                    l.parentNode.removeChild(l);
+                });
+                var tScript = document.getElementById("t-script");
+                tScript.parentNode.removeChild(tScript);
+                hd.appendChild(document.getElementById("page_main_style"));
+                var bdy = document.querySelector("body");
+                bdy.innerHTML = answer ? "<h1>Executing Tests . . .</h1>" : "<h1>Execution Cancelled</h1><span id=\"_rld\" onclick=\"window.location.reload(true);\">Reload to retry</span>";
+                bdy.style.visibility = "visible";
+                var scr = document.createElement("script");
+                scr.type = "text/javascript";
+                scr.appendChild(document.createTextNode(content));
+                hd.appendChild(scr);
+            } else {
+                setTimeout(chk, 100);
+            }
+        };
+        setTimeout(function () {
+            answer = confirm("Do you want to execute traversor tests?");
+            chk();
+        }, 100);
+    </script>
+</body>
+
+</html>
